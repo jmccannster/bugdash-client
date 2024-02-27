@@ -5,6 +5,7 @@ import { MySocketService } from './services/my-socket.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgFor, AsyncPipe, UpperCasePipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { CHTService } from './components/CHT/cht.service';
 
 @Component({
     selector: 'app-root',
@@ -25,7 +26,10 @@ export class AppComponent {
 
   cht$?: Observable<number>;
 
-  constructor(private socket: MySocketService) {}
+  constructor(
+    private socket: MySocketService,
+    private chtSvc: CHTService
+    ) {}
 
   ngOnInit(): void {
     this.users$ = this.socket
@@ -58,6 +62,7 @@ export class AppComponent {
       .getCht()
       .pipe(map( (cht) => {
         console.log(`CHT: ${cht}`);
+        this.chtSvc.update(cht);
         return cht;
       }));
 

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Injector, Input, ViewChild } from '@angular/core';
-import { ClockService } from '../../services/clock.service';
-import { P5Clock } from '../../P5/P5Clock';
+import { ClockService } from '../Clock/clock.service';
+import { P5Clock } from '../Clock/P5Clock';
 import { GuageFactory } from './guage-factory';
 
 @Component({

@@ -1,7 +1,10 @@
 import { Injector } from "@angular/core";
-import { P5Clock } from "../../P5/P5Clock";
-import { ClockService } from "../../services/clock.service";
+import { P5Clock } from "../Clock/P5Clock";
+import { ClockService } from "../Clock/clock.service";
 import { IGuage } from "./iguage";
+import { CHTService } from "../CHT/cht.service";
+import { GuageServiceBase } from "../../services/GuageServiceBase";
+import { P5CHT } from "../CHT/p5-cht";
 
 export class GuageFactory {
 
@@ -12,12 +15,17 @@ export class GuageFactory {
     public createGuage(pName: string, pCanvasElement: any, width:number, height:number): IGuage | null {
 
         let guage:IGuage | null = null;
+        let svc:GuageServiceBase | null = null;
 
         switch(pName.toLowerCase())
         {
             case "clock":
-                let svc:ClockService = this.injector.get(ClockService);
-                guage = new P5Clock(pCanvasElement, height, width, svc);
+                svc = this.injector.get(ClockService) as ClockService;
+                guage = new P5Clock(pCanvasElement, width, height-250, svc as ClockService);
+                break;
+            case "cht":
+                svc = this.injector.get(CHTService);
+                guage = new P5CHT(pCanvasElement, width, height-250, svc as CHTService);
                 break;
             default:
                 console.log(`Unable to create unsupported guague ${pName}. Did you misspell it?`);

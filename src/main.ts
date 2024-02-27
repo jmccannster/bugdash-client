@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { MySocketService } from './app/services/my-socket.service';
 
-const config: SocketIoConfig = { url: 'http://192.168.1.154:5000', options: {} };
+//const config: SocketIoConfig = { url: 'http://192.168.1.154:5000', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
 
 
 

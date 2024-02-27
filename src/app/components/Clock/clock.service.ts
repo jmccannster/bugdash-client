@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GuageServiceBase } from './GuageServiceBase';
+import { GuageServiceBase } from '../../services/GuageServiceBase';
 
 @Injectable({
   providedIn: 'root'

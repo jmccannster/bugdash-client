@@ -1,21 +1,16 @@
-//import * as p5 from "p5";
-//import { GameTimerService } from "../services/game-timer.service";
+import { GuageBase } from "../guage/guage-base";
+import { CHTService } from "./cht.service";
 
-import p5 from "p5";
-import { ClockService } from "../services/clock.service";
-import { GuageBase } from "../components/guage/guage-base";
-
-export class P5Clock extends GuageBase {
-
+export class P5CHT extends GuageBase {
     private _height: number;
     private _width: number;
     //private gameTime: number;
-    private _clockSvc: ClockService;
-    private _currentDate: Date = new Date();
+    private _svc: CHTService;
+    private _currentCHT: number = 0;
   
-    constructor(pContainer: HTMLElement, pHeight: number, pWidth: number, pClockSvc: ClockService) {
+    constructor(pContainer: HTMLElement, pHeight: number, pWidth: number, pSvc: CHTService) {
       super(() => {}, pContainer);
-      this._clockSvc = pClockSvc;
+      this._svc = pSvc;
       this._height = pHeight;
       this._width = pWidth;
     }
@@ -31,9 +26,9 @@ export class P5Clock extends GuageBase {
       this.textFont('Helvetica');
       this.textAlign(this.LEFT);
 
-      this._clockSvc.clockTime$.subscribe(d => {
+      this._svc.cht$.subscribe(d => {
         //console.log(d.getTime());
-        this._currentDate = d;
+        this._currentCHT = d;
         this.draw();
       });
 
@@ -50,7 +45,7 @@ export class P5Clock extends GuageBase {
       let mn = this.minute();
       let sc = this.second();
   
-      this.text(this._currentDate.toLocaleTimeString(), this._height/2, this._width/2);
+      this.text(this._currentCHT, this._height/2, this._width/2);
       this.textAlign(this.CENTER);
 
     }
