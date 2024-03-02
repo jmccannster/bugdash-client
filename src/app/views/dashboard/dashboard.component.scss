@@ -37,7 +37,7 @@
 	border-width: 1px 1px 0px;
 	border-style: solid;
 	justify-content: center;
-	align-items: center;
+	//align-items: center;
 	align-content: flex-start;
 	position: relative;
 	min-width: 50px;
@@ -50,7 +50,7 @@
 	border-width: 1px;
 	border-style: solid;
 	justify-content: center;
-	align-items: center;
+	//align-items: center;
 	align-content: flex-start;
 	position: relative;
 	min-width: 50px;
@@ -60,4 +60,14 @@
 }
 .button {
 	height: max-content;
+}
+.app-gauge {
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: flex-start;
+	position: relative;
+	min-width: 50px;
+	min-height: 50px;
+	flex-grow: 1;
+	flex-shrink: 0;
 }

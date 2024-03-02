@@ -61,13 +61,13 @@ export class AppComponent {
     this.cht$ = this.socket
       .getCht()
       .pipe(map( (cht) => {
-        console.log(`CHT: ${cht}`);
+        //console.log(`CHT: ${cht}`);
         this.chtSvc.update(cht);
         return cht;
       }));
 
     this.cht$.subscribe( data => {
-      console.log(`cht: ${data} ${new Date().toTimeString()}`);
+      //console.log(`cht: ${data} ${new Date().toTimeString()}`);
     });
   }
 

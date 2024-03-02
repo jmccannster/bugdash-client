@@ -21,11 +21,13 @@ export class GuageFactory {
         {
             case "clock":
                 svc = this.injector.get(ClockService) as ClockService;
-                guage = new P5Clock(pCanvasElement, width, height-250, svc as ClockService);
+                //guage = new P5Clock(pCanvasElement, width, height-250, svc as ClockService);
+                guage = new P5Clock(pCanvasElement, width, height, svc as ClockService);
                 break;
             case "cht":
                 svc = this.injector.get(CHTService);
-                guage = new P5CHT(pCanvasElement, width, height-250, svc as CHTService);
+                //guage = new P5CHT(pCanvasElement, width, height-250, svc as CHTService);
+                guage = new P5CHT(pCanvasElement, width, height, svc as CHTService);
                 break;
             default:
                 console.log(`Unable to create unsupported guague ${pName}. Did you misspell it?`);

@@ -1,0 +1,10 @@
+.gauge {
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: flex-start;
+	position: relative;
+	min-width: 50px;
+	min-height: 50px;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
