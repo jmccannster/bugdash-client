@@ -5,14 +5,15 @@ import p5 from "p5";
 import { ClockService } from "./clock.service";
 import { GuageBase } from "../guage/guage-base";
 import { GuageServiceBase } from "../../services/GuageServiceBase";
+import { Theme } from "../../models/theme";
 
 export class P5Clock extends GuageBase {
 
     private _clockSvc: ClockService;
     private _currentDate: Date = new Date();
   
-    constructor(pContainer: HTMLElement, pWidth: number,  pHeight: number,  pClockSvc: ClockService) {
-      super(() => {}, pContainer, pWidth, pHeight, pClockSvc as GuageServiceBase);
+    constructor(pContainer: HTMLElement, pWidth: number,  pHeight: number,  pClockSvc: ClockService, pTheme: Theme) {
+      super(() => {}, pContainer, pWidth, pHeight, pClockSvc as GuageServiceBase, pTheme);
       this._clockSvc = pClockSvc;
 
       console.log(`creating CLOCK cmp with width:${pWidth} height:${pHeight}`);

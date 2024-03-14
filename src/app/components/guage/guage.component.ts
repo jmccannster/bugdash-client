@@ -5,6 +5,7 @@ import { GuageFactory } from './guage-factory';
 import { ResizeService } from '../../services/resize.service';
 import { IGuage } from './iguage';
 import { Subscription } from 'rxjs';
+import { Theme } from '../../models/theme';
 
 @Component({
   selector: 'app-guage',
@@ -59,7 +60,7 @@ export class GuageComponent {
 
     let factory:GuageFactory = new GuageFactory(this.injector);
     console.log(`GuageComponent width:${parentWidth} height:${parentHeight}`);
-    this._guage = factory.createGuage(this.guageName, this.gauge.nativeElement, parentWidth, parentHeight)!;
+    this._guage = factory.createGuage(this.guageName, this.gauge.nativeElement, parentWidth, parentHeight, new Theme())!;
   }
 
   ngOnDestroy() {
